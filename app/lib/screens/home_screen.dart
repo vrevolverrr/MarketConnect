@@ -151,9 +151,21 @@ class _HomeScreenState extends State<HomeScreen> {
                         alignment: Alignment.centerLeft,
                         child: Padding(
                           padding: EdgeInsets.only(left: 25.0),
-                          child: Text(
-                            "Vegetables",
-                            style: TextStyle(fontSize: 16.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Vegetables",
+                                style: TextStyle(fontSize: 16.0),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(right: 20.0),
+                                child: Text("view more",
+                                    style: TextStyle(
+                                        color: Color(0xff716262),
+                                        fontSize: 12.0)),
+                              )
+                            ],
                           ),
                         ),
                       ),
@@ -195,9 +207,21 @@ class _HomeScreenState extends State<HomeScreen> {
                         alignment: Alignment.centerLeft,
                         child: Padding(
                           padding: EdgeInsets.only(left: 25.0),
-                          child: Text(
-                            "Fruits",
-                            style: TextStyle(fontSize: 16.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Fruits",
+                                style: TextStyle(fontSize: 16.0),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(right: 20.0),
+                                child: Text("view more",
+                                    style: TextStyle(
+                                        color: Color(0xff716262),
+                                        fontSize: 12.0)),
+                              )
+                            ],
                           ),
                         ),
                       ),
@@ -239,9 +263,21 @@ class _HomeScreenState extends State<HomeScreen> {
                         alignment: Alignment.centerLeft,
                         child: Padding(
                           padding: EdgeInsets.only(left: 25.0),
-                          child: Text(
-                            "Meat",
-                            style: TextStyle(fontSize: 16.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Meat",
+                                style: TextStyle(fontSize: 16.0),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(right: 20.0),
+                                child: Text("view more",
+                                    style: TextStyle(
+                                        color: Color(0xff716262),
+                                        fontSize: 12.0)),
+                              )
+                            ],
                           ),
                         ),
                       ),
@@ -275,7 +311,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
                         ),
-                      )
+                      ),
+                      SizedBox(height: 40.0)
                     ],
                   ),
                 ),
