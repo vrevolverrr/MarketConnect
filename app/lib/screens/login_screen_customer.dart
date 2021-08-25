@@ -7,9 +7,28 @@ class LoginScreenCustomer extends StatefulWidget {
 
 class _LoginScreenCustomerState extends State<LoginScreenCustomer> {
   final fullNameFieldController = TextEditingController();
-  final emailFieldController = TextEditingController();
+  final phoneNumberFieldController = TextEditingController();
   final passwordFieldController = TextEditingController();
   final confirmPasswordFieldController = TextEditingController();
+
+  // To determine whether to display login fields or registration fields
+  // Full Name and Confirm Password fields or hidden if `false`
+  bool isRegistration = true;
+
+  Widget inputFieldWidget(
+      {required String hintText, required TextEditingController controller}) {
+    return SizedBox(
+        width: 320.0,
+        child: TextField(
+          controller: controller,
+          style: TextStyle(height: 1.6),
+          decoration: InputDecoration(
+              hintText: hintText,
+              border: OutlineInputBorder(),
+              contentPadding:
+                  EdgeInsets.symmetric(vertical: 1.0, horizontal: 12.0)),
+        ));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,65 +37,37 @@ class _LoginScreenCustomerState extends State<LoginScreenCustomer> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Customer Login Screen"),
+            Text(isRegistration
+                ? "Merchant Registration Screen"
+                : "MerchantLogin Screen"),
             SizedBox(
-              height: 15.0,
+              height: 15.0, // Spacing
             ),
+            isRegistration
+                ? inputFieldWidget(
+                    hintText: "Full Name", controller: fullNameFieldController)
+                : SizedBox(),
             SizedBox(
-                width: 320.0,
-                child: TextField(
-                  controller: fullNameFieldController,
-                  style: TextStyle(height: 1.6),
-                  decoration: InputDecoration(
-                      hintText: "Full Name",
-                      border: OutlineInputBorder(),
-                      contentPadding: EdgeInsets.symmetric(
-                          vertical: 1.0, horizontal: 12.0)),
-                )),
-            SizedBox(
-              height: 10.0,
+              height: isRegistration ? 10.0 : 0.0, // Spacing
             ),
+            inputFieldWidget(
+                hintText: "Phone Number",
+                controller: phoneNumberFieldController),
             SizedBox(
-                width: 320.0,
-                child: TextField(
-                  controller: emailFieldController,
-                  style: TextStyle(height: 1.6),
-                  decoration: InputDecoration(
-                      hintText: "Email",
-                      border: OutlineInputBorder(),
-                      contentPadding: EdgeInsets.symmetric(
-                          vertical: 1.0, horizontal: 12.0)),
-                )),
-            SizedBox(
-              height: 10.0,
+              height: 10.0, // Spacing
             ),
+            inputFieldWidget(
+                hintText: "Password", controller: passwordFieldController),
             SizedBox(
-                width: 320.0,
-                child: TextField(
-                  controller: passwordFieldController,
-                  style: TextStyle(height: 1.6),
-                  decoration: InputDecoration(
-                      hintText: "Password",
-                      border: OutlineInputBorder(),
-                      contentPadding: EdgeInsets.symmetric(
-                          vertical: 1.0, horizontal: 12.0)),
-                )),
-            SizedBox(
-              height: 10.0,
+              height: 10.0, // Spacing
             ),
+            isRegistration
+                ? inputFieldWidget(
+                    hintText: "Confirm Password",
+                    controller: confirmPasswordFieldController)
+                : SizedBox(),
             SizedBox(
-                width: 320.0,
-                child: TextField(
-                  controller: confirmPasswordFieldController,
-                  style: TextStyle(height: 1.6),
-                  decoration: InputDecoration(
-                      hintText: "Confirm Password",
-                      border: OutlineInputBorder(),
-                      contentPadding: EdgeInsets.symmetric(
-                          vertical: 1.0, horizontal: 12.0)),
-                )),
-            SizedBox(
-              height: 10.0,
+              height: isRegistration ? 10.0 : 0.0, // Spacing
             ),
             SizedBox(
               width: 320.0,
@@ -84,21 +75,35 @@ class _LoginScreenCustomerState extends State<LoginScreenCustomer> {
               child: ElevatedButton(
                   onPressed: () => {
                         // TODO REGISTER
-                        print("pressed")
+                        // check for isRegistration to decide whether to login
+                        // or register an account
                       },
-                  child: Text("Register")),
+                  child: Text(isRegistration ? "Register" : "Login")),
             ),
             SizedBox(height: 15.0),
-            GestureDetector(
-              onTap: () => {
-                // TODO REGISTER
-                print("pressed")
-              },
-              child: Text(
-                "Already registered? Login to your account",
-                style: TextStyle(color: Colors.blue),
-              ),
-            )
+            isRegistration
+                ? GestureDetector(
+                    onTap: () => {
+                      setState(() {
+                        isRegistration = false;
+                      })
+                    },
+                    child: Text(
+                      "Already registered? Login to your account",
+                      style: TextStyle(color: Colors.blue),
+                    ),
+                  )
+                : GestureDetector(
+                    onTap: () => {
+                      setState(() {
+                        isRegistration = true;
+                      })
+                    },
+                    child: Text(
+                      "Don't have an account? Register an account",
+                      style: TextStyle(color: Colors.blue),
+                    ),
+                  )
           ],
         ),
       ),
