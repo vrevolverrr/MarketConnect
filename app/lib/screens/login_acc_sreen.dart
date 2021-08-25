@@ -37,6 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Color(0xFFFADCD9),
       body: Center(
         child: Column(
@@ -68,7 +69,8 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             SizedBox(height: 5.0),
             customInputField(
-                hintText: "016-3302542", controller: fullNameFieldController),
+                hintText: "016-3302542",
+                controller: phoneNumberFieldController),
             SizedBox(height: 13.0),
             Transform.translate(
               offset: Offset(-123.0, 0),
@@ -79,7 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             SizedBox(height: 5.0),
             customInputField(
-                hintText: "Abc123@", controller: fullNameFieldController),
+                hintText: "Abc123@", controller: passwordFieldController),
             SizedBox(height: 13.0),
             Transform.translate(
               offset: Offset(-95.0, 0),
@@ -90,7 +92,8 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             SizedBox(height: 5.0),
             customInputField(
-                hintText: "Abc123@", controller: fullNameFieldController),
+                hintText: "Abc123@",
+                controller: confirmPasswordFieldController),
             SizedBox(height: 13.0),
             Expanded(
               child: Align(
