@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ShopPreview extends StatelessWidget {
+class ItemPreview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(

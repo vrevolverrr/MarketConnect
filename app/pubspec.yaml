@@ -75,3 +75,16 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+  fonts:
+    - family: MazzardH-Bold
+      fonts:
+        - asset: assets/fonts/MazzardH-Bold.ttf
+    
+    - family: MazzardH-Medium
+      fonts:
+        - asset: assets/fonts/MazzardH-Medium.ttf
+        
+    - family: MazzardH-SemiBold
+      fonts:
+        - asset: assets/fonts/MazzardH-SemiBold.ttf
