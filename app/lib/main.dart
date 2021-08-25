@@ -1,4 +1,5 @@
 import 'package:app/screens/login_screen.dart';
+import 'package:app/screens/main_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(App());
@@ -23,6 +24,6 @@ class AppHome extends StatefulWidget {
 class _AppHomeState extends State<AppHome> {
   @override
   Widget build(BuildContext context) {
-    return LoginScreen();
+    return MainScreen();
   }
 }
