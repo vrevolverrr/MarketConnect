@@ -13,6 +13,8 @@ class _LoginScreenState extends State<LoginScreen> {
   final confirmPasswordFieldController = TextEditingController();
   final toggleBarController = ToggleBarController();
 
+  bool isRegistration = false;
+
   Widget customInputField(
       {required String hintText, required TextEditingController controller}) {
     return SizedBox(
@@ -49,16 +51,21 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(
               height: 30.0,
             ),
-            Transform.translate(
-              offset: Offset(-120.0, 0),
-              child: Text(
-                "Full Name",
-                style: TextStyle(fontSize: 14.0, color: Color(0xff671b1b)),
-              ),
-            ),
+            isRegistration
+                ? Transform.translate(
+                    offset: Offset(-120.0, 0),
+                    child: Text(
+                      "Full Name",
+                      style:
+                          TextStyle(fontSize: 14.0, color: Color(0xff671b1b)),
+                    ),
+                  )
+                : SizedBox(),
             SizedBox(height: 5.0),
-            customInputField(
-                hintText: "John Wick", controller: fullNameFieldController),
+            isRegistration
+                ? customInputField(
+                    hintText: "John Wick", controller: fullNameFieldController)
+                : SizedBox(),
             SizedBox(height: 13.0),
             Transform.translate(
               offset: Offset(-105.0, 0),
@@ -83,17 +90,22 @@ class _LoginScreenState extends State<LoginScreen> {
             customInputField(
                 hintText: "Abc123@", controller: passwordFieldController),
             SizedBox(height: 13.0),
-            Transform.translate(
-              offset: Offset(-95.0, 0),
-              child: Text(
-                "Confirm Password",
-                style: TextStyle(fontSize: 14.0, color: Color(0xff671b1b)),
-              ),
-            ),
+            isRegistration
+                ? Transform.translate(
+                    offset: Offset(-95.0, 0),
+                    child: Text(
+                      "Confirm Password",
+                      style:
+                          TextStyle(fontSize: 14.0, color: Color(0xff671b1b)),
+                    ),
+                  )
+                : SizedBox(),
             SizedBox(height: 5.0),
-            customInputField(
-                hintText: "Abc123@",
-                controller: confirmPasswordFieldController),
+            isRegistration
+                ? customInputField(
+                    hintText: "Abc123@",
+                    controller: confirmPasswordFieldController)
+                : SizedBox(),
             SizedBox(height: 13.0),
             Expanded(
               child: Align(
@@ -132,7 +144,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             height: 48.0,
                             alignment: Alignment.center,
                             child: Text(
-                              "Register",
+                              isRegistration ? "Register" : "Login",
                               style: TextStyle(
                                   fontSize: 18.0, color: Color(0xff380F0F)),
                             ),
@@ -145,13 +157,24 @@ class _LoginScreenState extends State<LoginScreen> {
                       alignment: Alignment.center,
                       child: Transform.translate(
                         offset: Offset(0, -50.0),
-                        child: Text(
-                          "Already have an account?",
-                          style: TextStyle(
-                              fontFamily: "MazzardH-Bold",
-                              fontSize: 12.0,
-                              color: Color(0xff434343)),
-                        ),
+                        child: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                if (isRegistration)
+                                  isRegistration = false;
+                                else
+                                  isRegistration = true;
+                              });
+                            },
+                            child: Text(
+                              isRegistration
+                                  ? "Already have an account?"
+                                  : "Already a user?",
+                              style: TextStyle(
+                                  fontFamily: "MazzardH-Bold",
+                                  fontSize: 12.0,
+                                  color: Color(0xff434343)),
+                            )),
                       ),
                     )),
                     Positioned.fill(
