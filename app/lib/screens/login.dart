@@ -45,42 +45,55 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(
               height: 30.0,
             ),
-            Text(
-              "Full Name",
-              style: TextStyle(fontSize: 14.0, color: Color(0xff671b1b)),
+            Transform.translate(
+              offset: Offset(-120.0, 0),
+              child: Text(
+                "Full Name",
+                style: TextStyle(fontSize: 14.0, color: Color(0xff671b1b)),
+              ),
             ),
             SizedBox(height: 5.0),
             customInputField(
                 hintText: "John Wick", controller: fullNameFieldController),
-            SizedBox(height: 12.0),
-            Text(
-              "Phone Number",
-              style: TextStyle(fontSize: 14.0, color: Color(0xff671b1b)),
+            SizedBox(height: 13.0),
+            Transform.translate(
+              offset: Offset(-105.0, 0),
+              child: Text(
+                "Phone Number",
+                style: TextStyle(fontSize: 14.0, color: Color(0xff671b1b)),
+              ),
             ),
             SizedBox(height: 5.0),
             customInputField(
                 hintText: "016-3302542", controller: fullNameFieldController),
-            SizedBox(height: 12.0),
-            Text(
-              "Password",
-              style: TextStyle(fontSize: 14.0, color: Color(0xff671b1b)),
+            SizedBox(height: 13.0),
+            Transform.translate(
+              offset: Offset(-123.0, 0),
+              child: Text(
+                "Password",
+                style: TextStyle(fontSize: 14.0, color: Color(0xff671b1b)),
+              ),
             ),
             SizedBox(height: 5.0),
             customInputField(
                 hintText: "Abc123@", controller: fullNameFieldController),
-            SizedBox(height: 12.0),
-            Text(
-              "Confirm Password",
-              style: TextStyle(fontSize: 14.0, color: Color(0xff671b1b)),
+            SizedBox(height: 13.0),
+            Transform.translate(
+              offset: Offset(-95.0, 0),
+              child: Text(
+                "Confirm Password",
+                style: TextStyle(fontSize: 14.0, color: Color(0xff671b1b)),
+              ),
             ),
             SizedBox(height: 5.0),
             customInputField(
                 hintText: "Abc123@", controller: fullNameFieldController),
-            SizedBox(height: 12.0),
+            SizedBox(height: 13.0),
             Expanded(
               child: Align(
                 alignment: Alignment.bottomCenter,
                 child: Stack(
+                  clipBehavior: Clip.none,
                   children: [
                     Container(
                       height: 200.0,
@@ -90,6 +103,94 @@ class _LoginScreenState extends State<LoginScreen> {
                               topLeft: Radius.circular(50.0),
                               topRight: Radius.circular(50.0))),
                     ),
+                    Positioned(
+                        left: (MediaQuery.of(context).size.width - 200) / 2 -
+                            15.0,
+                        bottom: 200.0 - 30,
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          style: ButtonStyle(
+                              shape: MaterialStateProperty.all(
+                                  RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(125))),
+                              backgroundColor:
+                                  MaterialStateProperty.all(Color(0xfff4948a))),
+                          child: Container(
+                            width: 200.0,
+                            height: 48.0,
+                            alignment: Alignment.center,
+                            child: Text(
+                              "Register",
+                              style: TextStyle(
+                                  fontSize: 18.0, color: Color(0xff380F0F)),
+                            ),
+                          ),
+                        )),
+                    Positioned(
+                        left: (MediaQuery.of(context).size.width - 155) / 2,
+                        bottom: 140.0,
+                        child: SizedBox(
+                          width: 155.0,
+                          child: Text(
+                            "Already have an account?",
+                            style: TextStyle(
+                                fontFamily: "MazzardH-Bold",
+                                fontSize: 12.0,
+                                color: Color(0xff434343)),
+                          ),
+                        )),
+                    Positioned(
+                        left: (MediaQuery.of(context).size.width - 85) / 2,
+                        bottom: 105.0,
+                        child: SizedBox(
+                          width: 85.0,
+                          child: Text(
+                            "Sign in options",
+                            style: TextStyle(
+                                fontSize: 12.0, color: Color(0xff434343)),
+                          ),
+                        )),
+                    Positioned(
+                        left: (MediaQuery.of(context).size.width - 88) / 2,
+                        bottom: 55.0,
+                        child: SizedBox(
+                          width: 88.0,
+                          child: Row(
+                            children: [
+                              Container(
+                                width: 40.0,
+                                height: 40.0,
+                                padding: EdgeInsets.all(8.0),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(14),
+                                    color: Color(0xffE9E9E9)),
+                                child: Image.asset("assets/img/google.png"),
+                              ),
+                              SizedBox(width: 8.0),
+                              Container(
+                                width: 40.0,
+                                height: 40.0,
+                                padding: EdgeInsets.all(8.0),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(14),
+                                    color: Color(0xffE9E9E9)),
+                                child: Image.asset("assets/img/email.png"),
+                              )
+                            ],
+                          ),
+                        )),
+                    Positioned(
+                        left: (MediaQuery.of(context).size.width - 185) / 2,
+                        bottom: 15.0,
+                        child: SizedBox(
+                          width: 185.0,
+                          child: Text(
+                            "Team 15 @ YMEHackathon2021",
+                            style: TextStyle(
+                                fontSize: 12.0, color: Color(0xff434343)),
+                          ),
+                        ))
                   ],
                 ),
               ),
