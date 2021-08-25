@@ -1,3 +1,5 @@
+import 'package:app/backend/search.dart';
+import 'package:app/widgets/search_results_item.dart';
 import 'package:flutter/material.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -6,9 +8,12 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
+  List<Widget> searchResults = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Center(
         child: Column(
           children: [
@@ -23,41 +28,47 @@ class _SearchScreenState extends State<SearchScreen> {
                     child: Align(
                   alignment: Alignment.center,
                   child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 18.0),
-                    width: 370.0,
-                    height: 46.0,
-                    alignment: Alignment.centerLeft,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25.0),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Color.fromRGBO(71, 43, 40, 0.05),
-                              offset: Offset(0, 2.0),
-                              spreadRadius: 2.0,
-                              blurRadius: 12.0),
-                        ],
-                        color: Colors.white),
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.search,
-                          color: Color(0xff5C5C5C),
-                        ),
-                        SizedBox(
-                          width: 6.0,
-                        ),
-                        Transform.translate(
-                          offset: Offset(0, 1.2),
-                          child: Text("Chicken, Fish, Fruits...",
-                              style: TextStyle(
-                                  fontSize: 16, color: Color(0xffB6B6B6))),
-                        )
-                      ],
+                    width: 365.0,
+                    height: 42.0,
+                    decoration: BoxDecoration(boxShadow: [
+                      BoxShadow(
+                          color: Color.fromRGBO(71, 43, 40, 0.05),
+                          offset: Offset(0, 2.0),
+                          spreadRadius: 2.0,
+                          blurRadius: 12.0),
+                    ]),
+                    child: TextField(
+                      autofocus: true,
+                      style: TextStyle(height: 1.8),
+                      decoration: InputDecoration(
+                        prefixIcon: IconButton(
+                            icon: Icon(Icons.arrow_back),
+                            color: Color(0xff5C5C5C),
+                            iconSize: 18.0,
+                            onPressed: () => Navigator.pop(context)),
+                        hintText: "Chicken, Fish, Fruits...",
+                        contentPadding: EdgeInsets.symmetric(horizontal: 20.0),
+                        hintStyle: TextStyle(color: Color(0xffCFCFCF)),
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(
+                            borderSide: BorderSide.none,
+                            borderRadius: BorderRadius.circular(50)),
+                      ),
+                      onSubmitted: (String query) async {
+                        searchItem(query).then((value) => setState(() {
+                              searchResults = value;
+                            }));
+                      },
                     ),
                   ),
                 ))
               ],
-            )
+            ),
+            Expanded(
+                child: ListView(
+              children: searchResults,
+            ))
           ],
         ),
       ),

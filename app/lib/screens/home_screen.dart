@@ -1,3 +1,4 @@
+import 'package:app/screens/search_screen.dart';
 import 'package:app/widgets/item_preview.dart';
 import 'package:flutter/material.dart';
 
@@ -27,37 +28,46 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Column(
                     children: [
                       SizedBox(height: 25.0),
-                      Container(
-                        padding: EdgeInsets.symmetric(horizontal: 18.0),
-                        width: 350.0,
-                        height: 46.0,
-                        alignment: Alignment.centerLeft,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(25.0),
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Color.fromRGBO(71, 43, 40, 0.05),
-                                  offset: Offset(0, 2.0),
-                                  spreadRadius: 2.0,
-                                  blurRadius: 12.0),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SearchScreen()));
+                        },
+                        child: Container(
+                          padding: EdgeInsets.symmetric(horizontal: 18.0),
+                          width: 370.0,
+                          height: 46.0,
+                          alignment: Alignment.centerLeft,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(25.0),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Color.fromRGBO(71, 43, 40, 0.05),
+                                    offset: Offset(0, 2.0),
+                                    spreadRadius: 2.0,
+                                    blurRadius: 12.0),
+                              ],
+                              color: Colors.white),
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.search,
+                                color: Color(0xff5C5C5C),
+                              ),
+                              SizedBox(
+                                width: 6.0,
+                              ),
+                              Transform.translate(
+                                offset: Offset(0, 1.2),
+                                child: Text("Chicken, Fish, Fruits...",
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        color: Color(0xffB6B6B6))),
+                              )
                             ],
-                            color: Colors.white),
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.search,
-                              color: Color(0xff5C5C5C),
-                            ),
-                            SizedBox(
-                              width: 6.0,
-                            ),
-                            Transform.translate(
-                              offset: Offset(0, 1.2),
-                              child: Text("Chicken, Fish, Fruits...",
-                                  style: TextStyle(
-                                      fontSize: 16, color: Color(0xffB6B6B6))),
-                            )
-                          ],
+                          ),
                         ),
                       ),
                       SizedBox(
