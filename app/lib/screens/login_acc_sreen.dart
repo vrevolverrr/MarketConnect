@@ -1,6 +1,6 @@
-import 'package:app/widgets/toggle_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:app/backend/login.dart';
+import 'package:app/widgets/toggle_bar.dart';
+import 'package:app/backend/register.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
