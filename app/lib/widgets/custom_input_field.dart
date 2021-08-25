@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 
 Widget customInputField(
-    {required String hintText, required TextEditingController controller}) {
+    {required String hintText,
+    required TextEditingController controller,
+    bool obscureText = false}) {
   return SizedBox(
     width: 330.0,
     height: 42.0,
     child: TextField(
       controller: controller,
+      obscureText: obscureText,
       style: TextStyle(height: 1.6),
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(horizontal: 20.0),

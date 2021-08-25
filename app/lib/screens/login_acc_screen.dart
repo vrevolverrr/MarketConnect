@@ -1,5 +1,8 @@
+import 'package:app/screens/home_screen.dart';
+import 'package:app/screens/merchant_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:app/widgets/toggle_bar.dart';
+import 'package:app/widgets/custom_input_field.dart';
 import 'package:app/backend/register.dart';
 import 'package:app/backend/login.dart';
 
@@ -16,28 +19,6 @@ class _LoginScreenState extends State<LoginScreen> {
   final toggleBarController = ToggleBarController();
 
   bool isRegistration = false;
-
-  Widget customInputField(
-      {required String hintText, required TextEditingController controller}) {
-    return SizedBox(
-      width: 330.0,
-      height: 42.0,
-      child: TextField(
-        controller: controller,
-        style: TextStyle(height: 1.6),
-        decoration: InputDecoration(
-          contentPadding: EdgeInsets.symmetric(horizontal: 20.0),
-          hintStyle: TextStyle(color: Color(0xffCFCFCF)),
-          filled: true,
-          fillColor: Colors.white,
-          hintText: hintText,
-          border: OutlineInputBorder(
-              borderSide: BorderSide.none,
-              borderRadius: BorderRadius.circular(50)),
-        ),
-      ),
-    );
-  }
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,7 +71,9 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             SizedBox(height: 5.0),
             customInputField(
-                hintText: "Abc123@", controller: passwordFieldController),
+                hintText: "Abc123@",
+                controller: passwordFieldController,
+                obscureText: true),
             SizedBox(height: 13.0),
             isRegistration
                 ? Transform.translate(
@@ -106,7 +89,8 @@ class _LoginScreenState extends State<LoginScreen> {
             isRegistration
                 ? customInputField(
                     hintText: "Abc123@",
-                    controller: confirmPasswordFieldController)
+                    controller: confirmPasswordFieldController,
+                    obscureText: true)
                 : SizedBox(),
             SizedBox(height: 13.0),
             Expanded(
@@ -130,24 +114,30 @@ class _LoginScreenState extends State<LoginScreen> {
                         offset: Offset(0, -18.0),
                         child: ElevatedButton(
                           onPressed: () {
-                            // use toggleBarController.toggled to check whether customer or merchant;
-                            // false is customer true is merchant
-                            // use fullNameFieldController.text to read text field
-                            //toggleBarController.toggled
-                            //fullNameFieldController.text
-
                             if (isRegistration == true) {
                               registerUser(
                                   fullNameFieldController.text,
                                   phoneNumberFieldController.text,
                                   passwordFieldController.text,
                                   confirmPasswordFieldController.text,
-                                  toggleBarController.toggled);
+                                  toggleBarController.toggled, () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (builder) =>
+                                        toggleBarController.toggled
+                                            ? MerchantScreen()
+                                            : HomeScreen()));
+                              });
                             } else {
                               loginUser(
                                   phoneNumberFieldController.text,
                                   passwordFieldController.text,
-                                  toggleBarController.toggled);
+                                  toggleBarController.toggled, () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (builder) =>
+                                        toggleBarController.toggled
+                                            ? MerchantScreen()
+                                            : HomeScreen()));
+                              });
                             }
                           },
                           style: ButtonStyle(

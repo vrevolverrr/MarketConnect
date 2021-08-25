@@ -20,9 +20,19 @@ Widget searchResultItem(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 20.0),
-              Text(
-                title,
-                style: TextStyle(fontSize: 16.0, color: Color(0xff671B1B)),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text(
+                    title,
+                    style: TextStyle(fontSize: 16.0, color: Color(0xff671B1B)),
+                  ),
+                  SizedBox(width: 6.0),
+                  Text(
+                    "(${price})",
+                    style: TextStyle(fontSize: 12.0),
+                  ),
+                ],
               ),
               SizedBox(height: 8.0),
               Text(
@@ -30,35 +40,22 @@ Widget searchResultItem(
                 style: TextStyle(fontSize: 12.0),
               ),
               SizedBox(height: 5.0),
-              Row(
-                children: [
-                  Text(
-                    price,
-                    style: TextStyle(fontSize: 20.0),
+              ElevatedButton(
+                onPressed: () {},
+                style: ButtonStyle(
+                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(125))),
+                    backgroundColor:
+                        MaterialStateProperty.all(Color(0xfff4948a))),
+                child: Container(
+                  width: 70.0,
+                  height: 15.0,
+                  alignment: Alignment.center,
+                  child: Text(
+                    "Contact",
+                    style: TextStyle(fontSize: 14.0, color: Color(0xff380F0F)),
                   ),
-                  Transform.translate(
-                    offset: Offset(18.0, 8.0),
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      style: ButtonStyle(
-                          shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(125))),
-                          backgroundColor:
-                              MaterialStateProperty.all(Color(0xfff4948a))),
-                      child: Container(
-                        width: 70.0,
-                        height: 15.0,
-                        alignment: Alignment.center,
-                        child: Text(
-                          "Contact",
-                          style: TextStyle(
-                              fontSize: 14.0, color: Color(0xff380F0F)),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+                ),
               )
             ],
           ),

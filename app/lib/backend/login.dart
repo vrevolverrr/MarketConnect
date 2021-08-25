@@ -1,7 +1,9 @@
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-void loginUser(userPhoneNumber, userPassword, userType) async {
+void loginUser(userPhoneNumber, userPassword, userType, callback) async {
   await Firebase.initializeApp();
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   print(userType);
@@ -20,7 +22,8 @@ void loginUser(userPhoneNumber, userPassword, userType) async {
         if (doc["userPassword"] == userPassword) {
           loginSuccess = true;
           print("Customer login success");
-        }
+          callback();
+        } else {}
       });
     });
   } else {
@@ -34,6 +37,7 @@ void loginUser(userPhoneNumber, userPassword, userType) async {
         if (doc["merchantPassword"] == userPassword) {
           loginSuccess = true;
           print("Merchant login success");
+          callback();
         } else {
           print("nope meng");
         }
