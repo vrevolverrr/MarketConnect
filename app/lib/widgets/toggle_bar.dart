@@ -1,12 +1,22 @@
 import 'package:flutter/material.dart';
 
+class ToggleBarController {
+  bool toggled = false;
+}
+
 class ToggleBar extends StatefulWidget {
+  ToggleBar({required this.controller});
+
+  final ToggleBarController controller;
+
   @override
-  _ToggleBarState createState() => _ToggleBarState();
+  _ToggleBarState createState() => _ToggleBarState(controller);
 }
 
 class _ToggleBarState extends State<ToggleBar> {
-  bool toggled = false;
+  _ToggleBarState(this.controller);
+
+  final ToggleBarController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +30,9 @@ class _ToggleBarState extends State<ToggleBar> {
           AnimatedAlign(
             duration: Duration(milliseconds: 220),
             curve: Curves.fastOutSlowIn,
-            alignment: !toggled ? Alignment.centerLeft : Alignment.centerRight,
+            alignment: !controller.toggled
+                ? Alignment.centerLeft
+                : Alignment.centerRight,
             child: Container(
               width: 153.0,
               height: 45.0,
@@ -47,7 +59,7 @@ class _ToggleBarState extends State<ToggleBar> {
                   behavior: HitTestBehavior.translucent,
                   onTap: () {
                     setState(() {
-                      toggled = false;
+                      controller.toggled = false;
                     });
                   },
                   child: Container(
@@ -68,7 +80,7 @@ class _ToggleBarState extends State<ToggleBar> {
                   behavior: HitTestBehavior.translucent,
                   onTap: () {
                     setState(() {
-                      toggled = true;
+                      controller.toggled = true;
                     });
                   },
                   child: Container(

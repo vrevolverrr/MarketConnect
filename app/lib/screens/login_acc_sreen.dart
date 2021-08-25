@@ -11,6 +11,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final phoneNumberFieldController = TextEditingController();
   final passwordFieldController = TextEditingController();
   final confirmPasswordFieldController = TextEditingController();
+  final toggleBarController = ToggleBarController();
 
   Widget customInputField(
       {required String hintText, required TextEditingController controller}) {
@@ -36,12 +37,15 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Color(0xFFFADCD9),
       body: Center(
         child: Column(
           children: [
             SizedBox(height: 60.0),
-            ToggleBar(),
+            ToggleBar(
+              controller: toggleBarController,
+            ),
             SizedBox(
               height: 30.0,
             ),
@@ -65,7 +69,8 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             SizedBox(height: 5.0),
             customInputField(
-                hintText: "016-3302542", controller: fullNameFieldController),
+                hintText: "016-3302542",
+                controller: phoneNumberFieldController),
             SizedBox(height: 13.0),
             Transform.translate(
               offset: Offset(-123.0, 0),
@@ -76,7 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             SizedBox(height: 5.0),
             customInputField(
-                hintText: "Abc123@", controller: fullNameFieldController),
+                hintText: "Abc123@", controller: passwordFieldController),
             SizedBox(height: 13.0),
             Transform.translate(
               offset: Offset(-95.0, 0),
@@ -87,7 +92,8 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             SizedBox(height: 5.0),
             customInputField(
-                hintText: "Abc123@", controller: fullNameFieldController),
+                hintText: "Abc123@",
+                controller: confirmPasswordFieldController),
             SizedBox(height: 13.0),
             Expanded(
               child: Align(
@@ -108,7 +114,11 @@ class _LoginScreenState extends State<LoginScreen> {
                             15.0,
                         bottom: 200.0 - 30,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            // use toggleBarController.toggled to check whether customer or merchant;
+                            // false is customer true is merchant
+                            // use fullNameFieldController.text to read text field
+                          },
                           style: ButtonStyle(
                               shape: MaterialStateProperty.all(
                                   RoundedRectangleBorder(
