@@ -109,10 +109,11 @@ class _LoginScreenState extends State<LoginScreen> {
                               topLeft: Radius.circular(50.0),
                               topRight: Radius.circular(50.0))),
                     ),
-                    Positioned(
-                        left: (MediaQuery.of(context).size.width - 200) / 2 -
-                            15.0,
-                        bottom: 200.0 - 30,
+                    Positioned.fill(
+                        child: Align(
+                      alignment: Alignment.topCenter,
+                      child: Transform.translate(
+                        offset: Offset(0, -18.0),
                         child: ElevatedButton(
                           onPressed: () {
                             // use toggleBarController.toggled to check whether customer or merchant;
@@ -136,31 +137,36 @@ class _LoginScreenState extends State<LoginScreen> {
                                   fontSize: 18.0, color: Color(0xff380F0F)),
                             ),
                           ),
-                        )),
-                    Positioned(
-                        left: (MediaQuery.of(context).size.width - 155) / 2,
-                        bottom: 140.0,
-                        child: SizedBox(
-                          width: 155.0,
-                          child: Text(
-                            "Already have an account?",
-                            style: TextStyle(
-                                fontFamily: "MazzardH-Bold",
-                                fontSize: 12.0,
-                                color: Color(0xff434343)),
-                          ),
-                        )),
-                    Positioned(
-                        left: (MediaQuery.of(context).size.width - 85) / 2,
-                        bottom: 105.0,
-                        child: SizedBox(
-                          width: 85.0,
+                        ),
+                      ),
+                    )),
+                    Positioned.fill(
+                        child: Align(
+                      alignment: Alignment.center,
+                      child: Transform.translate(
+                        offset: Offset(0, -50.0),
+                        child: Text(
+                          "Already have an account?",
+                          style: TextStyle(
+                              fontFamily: "MazzardH-Bold",
+                              fontSize: 12.0,
+                              color: Color(0xff434343)),
+                        ),
+                      ),
+                    )),
+                    Positioned.fill(
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Transform.translate(
+                          offset: Offset(0, -15.0),
                           child: Text(
                             "Sign in options",
                             style: TextStyle(
                                 fontSize: 12.0, color: Color(0xff434343)),
                           ),
-                        )),
+                        ),
+                      ),
+                    ),
                     Positioned(
                         left: (MediaQuery.of(context).size.width - 88) / 2,
                         bottom: 55.0,
@@ -190,17 +196,18 @@ class _LoginScreenState extends State<LoginScreen> {
                             ],
                           ),
                         )),
-                    Positioned(
-                        left: (MediaQuery.of(context).size.width - 185) / 2,
-                        bottom: 15.0,
-                        child: SizedBox(
-                          width: 185.0,
-                          child: Text(
-                            "Team 15 @ YMEHackathon2021",
-                            style: TextStyle(
-                                fontSize: 12.0, color: Color(0xff434343)),
-                          ),
-                        ))
+                    Positioned.fill(
+                        child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Padding(
+                        padding: EdgeInsets.only(bottom: 10.0),
+                        child: Text(
+                          "Team 15 @ YMEHackathon2021",
+                          style: TextStyle(
+                              fontSize: 12.0, color: Color(0xff434343)),
+                        ),
+                      ),
+                    ))
                   ],
                 ),
               ),
