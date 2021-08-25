@@ -1,5 +1,6 @@
 import 'package:app/widgets/toggle_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:app/backend/login.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -131,6 +132,14 @@ class _LoginScreenState extends State<LoginScreen> {
                             // use toggleBarController.toggled to check whether customer or merchant;
                             // false is customer true is merchant
                             // use fullNameFieldController.text to read text field
+                            //toggleBarController.toggled
+                            //fullNameFieldController.text
+                            registerUser(
+                                fullNameFieldController.text,
+                                phoneNumberFieldController.text,
+                                passwordFieldController.text,
+                                confirmPasswordFieldController.text,
+                                toggleBarController.toggled);
                           },
                           style: ButtonStyle(
                               shape: MaterialStateProperty.all(
