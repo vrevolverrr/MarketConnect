@@ -38,8 +38,8 @@ class _LoginScreenCustomerState extends State<LoginScreenCustomer> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(isRegistration
-                ? "Merchant Registration Screen"
-                : "MerchantLogin Screen"),
+                ? "Customer Registration Screen"
+                : "Customer Login Screen"),
             SizedBox(
               height: 15.0, // Spacing
             ),
