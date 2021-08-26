@@ -9,8 +9,11 @@
 </p>
 
 <p align="center">
-  <small>screenshots to be released soon</small>
+  <small>screenshots from design prototype,</small>
+  <small>actual screenshots release after refining the project</small>
 </p>
+
+![preview](https://raw.githubusercontent.com/vrevolverrr/MarketConnect/main/references/preview.png)
 
 ## Problem Statement
 Since the pandemic, Malaysia has imposed several lockdowns to curb the spread of COVID-19. This had a significant impact on the residents socially and economically. How can we help our country to recover socially and economically, while following through with the National Recovery Plan (NRP)?. 
