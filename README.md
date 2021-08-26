@@ -37,10 +37,10 @@ MarketConnect is a social platform to connect small businesses who are unable to
 Since no commission fee is incurred, this solution relies on advertising for long term sustainability. In app messaging and payment systems can also be integrated alongside custom delivery options to allow for a more seamless trading experience between merchants and customers.
 
 ## References
-Watch the full presentation session [here](https://www.facebook.com/YMEglobal/videos/597477884755151).<br>
-Check out the Figma project [here](https://www.figma.com/file/siTl4Z5Z75QgrJpIxB4tsF/Hackathon?node-id=0%3A1).<br>
-Check out projects from the other teams [here](https://yme-hackathon-2021.devpost.com/project-gallery).<br>
-Check out YMEGlobal's Facebook page [here](https://www.facebook.com/YMEglobal/).<br>
+- Watch the full presentation session [here](https://www.facebook.com/YMEglobal/videos/597477884755151).<br>
+- Check out the Figma project [here](https://www.figma.com/file/siTl4Z5Z75QgrJpIxB4tsF/Hackathon?node-id=0%3A1).<br>
+- Check out projects from the other teams [here](https://yme-hackathon-2021.devpost.com/project-gallery).<br>
+- Check out YMEGlobal's Facebook page [here](https://www.facebook.com/YMEglobal/).<br>
 
 <p align="center">
   <sub><strong>© 2021 Bryan Soong</strong></sub><br>
