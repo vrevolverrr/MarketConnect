@@ -59,8 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             SizedBox(height: 5.0),
             customInputField(
-                hintText: "016-3302542",
-                controller: phoneNumberFieldController),
+                hintText: "0163302542", controller: phoneNumberFieldController),
             SizedBox(height: 13.0),
             Transform.translate(
               offset: Offset(-123.0, 0),
@@ -137,7 +136,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         toggleBarController.toggled
                                             ? MerchantScreen()
                                             : HomeScreen()));
-                              });
+                              }, context);
                             }
                           },
                           style: ButtonStyle(

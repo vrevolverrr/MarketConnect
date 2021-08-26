@@ -1,45 +1,42 @@
-import 'dart:async';
-
+import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-void loginUser(userPhoneNumber, userPassword, userType, callback) async {
+void loginUser(String userPhoneNumber, String userPassword, bool userType,
+    Function callback, BuildContext context) async {
   await Firebase.initializeApp();
   FirebaseFirestore firestore = FirebaseFirestore.instance;
-  print(userType);
-
-  var loginSuccess = false;
 
   if (userType == false) {
-    //user
     // Create a CollectionReference called users that references the firestore collection
-    FirebaseFirestore.instance
+    firestore
         .collection('users')
         .where('userPhoneNumber', isEqualTo: userPhoneNumber)
         .get()
         .then((QuerySnapshot querySnapshot) {
       querySnapshot.docs.forEach((doc) {
         if (doc["userPassword"] == userPassword) {
-          loginSuccess = true;
-          print("Customer login success");
           callback();
-        } else {}
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text("Successfully logged in")));
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text("Incorrect email or password")));
+        }
       });
     });
   } else {
-    //merchant
-    FirebaseFirestore.instance
+    firestore
         .collection('merchant')
         .where('merchantPhoneNumber', isEqualTo: userPhoneNumber)
         .get()
         .then((QuerySnapshot querySnapshot) {
       querySnapshot.docs.forEach((doc) {
         if (doc["merchantPassword"] == userPassword) {
-          loginSuccess = true;
-          print("Merchant login success");
           callback();
         } else {
-          print("nope meng");
+          ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text("Incorrect email or password")));
         }
       });
     });
