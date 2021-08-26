@@ -34,6 +34,6 @@ Watch the full presentation session [here](https://www.facebook.com/YMEglobal/vi
 Check out the Figma project [here](https://www.figma.com/file/siTl4Z5Z75QgrJpIxB4tsF/Hackathon?node-id=0%3A1).
 
 <p align="center">
-  <sub><strong>© 2021 Bryan Soong</strong></sub>
+  <sub><strong>© 2021 Bryan Soong</strong></sub><br>
   <sub>with members of Team 15</sub>
 </p>
