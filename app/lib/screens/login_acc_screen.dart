@@ -121,21 +121,31 @@ class _LoginScreenState extends State<LoginScreen> {
                                   confirmPasswordFieldController.text,
                                   toggleBarController.toggled, () {
                                 Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (builder) =>
-                                        toggleBarController.toggled
-                                            ? MerchantScreen()
-                                            : HomeScreen()));
-                              });
+                                    builder: (builder) => toggleBarController
+                                            .toggled
+                                        ? MerchantScreen(
+                                            phoneNumber:
+                                                phoneNumberFieldController.text)
+                                        : HomeScreen(
+                                            phoneNumber:
+                                                phoneNumberFieldController
+                                                    .text)));
+                              }, context);
                             } else {
                               loginUser(
                                   phoneNumberFieldController.text,
                                   passwordFieldController.text,
                                   toggleBarController.toggled, () {
                                 Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (builder) =>
-                                        toggleBarController.toggled
-                                            ? MerchantScreen()
-                                            : HomeScreen()));
+                                    builder: (builder) => toggleBarController
+                                            .toggled
+                                        ? MerchantScreen(
+                                            phoneNumber:
+                                                phoneNumberFieldController.text)
+                                        : HomeScreen(
+                                            phoneNumber:
+                                                phoneNumberFieldController
+                                                    .text)));
                               }, context);
                             }
                           },
@@ -176,7 +186,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             child: Text(
                               isRegistration
                                   ? "Already have an account?"
-                                  : "Already a user?",
+                                  : "Need an account?",
                               style: TextStyle(
                                   fontFamily: "MazzardH-Bold",
                                   fontSize: 12.0,

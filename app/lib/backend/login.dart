@@ -28,11 +28,11 @@ void loginUser(String userPhoneNumber, String userPassword, bool userType,
   } else {
     firestore
         .collection('merchant')
-        .where('merchantPhoneNumber', isEqualTo: userPhoneNumber)
+        .where('userPhoneNumber', isEqualTo: userPhoneNumber)
         .get()
         .then((QuerySnapshot querySnapshot) {
       querySnapshot.docs.forEach((doc) {
-        if (doc["merchantPassword"] == userPassword) {
+        if (doc["userPassword"] == userPassword) {
           callback();
         } else {
           ScaffoldMessenger.of(context).showSnackBar(

@@ -1,53 +1,45 @@
+import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-Future<bool> registerUser(userName, userPhoneNumber, userPassword,
-    userConfirmPassword, userType, callback) async {
+Future<void> registerUser(
+    String userName,
+    String userPhoneNumber,
+    String userPassword,
+    String userConfirmPassword,
+    bool userType,
+    Function callback,
+    BuildContext context) async {
   if (userPassword == userConfirmPassword) {
     await Firebase.initializeApp();
     FirebaseFirestore firestore = FirebaseFirestore.instance;
-    print(userType);
 
     if (userType == false) {
       //user
       // Create a CollectionReference called users that references the firestore collection
-      CollectionReference users =
-          FirebaseFirestore.instance.collection('users');
-
-      Future<void> addUser() {
-        // Call the user's CollectionReference to add a new user
-        return users.add({
-          'userName': userName, // John Doe
-          'userPhoneNumber': userPhoneNumber, // Stokes and Sons
-          'userPassword': userPassword // 42
-        }).then((value) {
-          print("User Added");
-          callback();
-        }).catchError((error) => print("Failed to add user: $error"));
-      }
-
-      addUser();
+      CollectionReference users = firestore.collection('users');
+      return users.doc(userPhoneNumber).set({
+        'userName': userName,
+        'userPhoneNumber': userPhoneNumber,
+        'userPassword': userPassword,
+      }).then((_) {
+        callback();
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text("Successfully registered")));
+      });
     } else {
       // Create a CollectionReference called merchant that references the firestore collection
-      CollectionReference users =
-          FirebaseFirestore.instance.collection('merchant');
-
-      Future<void> addMerchant() {
-        // Call the user's CollectionReference to add a new user
-        return users.add({
-          'merchantName': userName, // John Doe
-          'merchantPhoneNumber': userPhoneNumber, // Stokes and Sons
-          'merchantPassword': userPassword // 42
-        }).then((value) {
-          print("User Added");
-          callback();
-        }).catchError((error) => print("Failed to add user: $error"));
-      }
-
-      addMerchant();
+      CollectionReference users = firestore.collection('merchant');
+      return users.doc(userPhoneNumber).set({
+        'userName': userName,
+        'userPhoneNumber': userPhoneNumber,
+        'userPassword': userPassword,
+        'listings': [],
+      }).then((_) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text("Successfully registered")));
+        callback();
+      });
     }
-
-    return true;
-  } else
-    return false;
+  }
 }

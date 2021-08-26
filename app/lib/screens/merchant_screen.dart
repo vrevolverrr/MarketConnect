@@ -4,11 +4,19 @@ import 'package:flutter/material.dart';
 import 'package:app/widgets/listings_item.dart';
 
 class MerchantScreen extends StatefulWidget {
+  MerchantScreen({required this.phoneNumber});
+
+  final String phoneNumber;
+
   @override
-  _MerchantScreenState createState() => _MerchantScreenState();
+  _MerchantScreenState createState() => _MerchantScreenState(phoneNumber);
 }
 
 class _MerchantScreenState extends State<MerchantScreen> {
+  _MerchantScreenState(this.phoneNumber);
+
+  final String phoneNumber;
+
   final List<Widget> itemListings = [
     listingItem("Fresh Avacado", "RM6.99"),
     listingItem("Tilipia Fish", "RM39.99")

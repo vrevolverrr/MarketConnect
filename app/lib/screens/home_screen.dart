@@ -3,11 +3,18 @@ import 'package:app/widgets/item_preview.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
+  HomeScreen({required this.phoneNumber});
+  final String phoneNumber;
+
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _HomeScreenState createState() => _HomeScreenState(phoneNumber);
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  _HomeScreenState(this.phoneNumber);
+
+  final String phoneNumber;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
