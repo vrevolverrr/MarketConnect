@@ -1,11 +1,15 @@
 <h1 align="center">MarketConnect</h1>
-﻿
+
 <p align="center">
   <b><small>✨ A social platform to allow small businesses to connect with nearby potential customers ✨</small></b>
 </p>
 
 <p align="center">
   <b><small>🔥 This project was ranked 4th place out of 24 teams at YME Hackathon 2021 🔥</small></b>  
+</p>
+
+<p align="center">
+  <small>screenshots to be released soon</small>
 </p>
 
 ## Problem Statement
