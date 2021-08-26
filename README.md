@@ -13,7 +13,7 @@
 </p>
 
 ## Problem Statement
-Since the pandemic, Malaysia imposed several lockdowns to curb the spread of Covid-19. This had a significant impact on the residents socially and economically. How can we help our country to recover socially and economically, while following through with the National Recovery Plan (NRP)?. 
+Since the pandemic, Malaysia has imposed several lockdowns to curb the spread of COVID-19. This had a significant impact on the residents socially and economically. How can we help our country to recover socially and economically, while following through with the National Recovery Plan (NRP)?. 
 
 ## Inspiration
 Due to the COVID-19 pandemic, many small businesses such as small shop owners and market merchants have lost their main income stream due to tight SOPs and regulations that forbid them from doing their business physically.
