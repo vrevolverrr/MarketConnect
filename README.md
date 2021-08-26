@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <b><small>🔥 This project was ranked 4th place out of 24 teams at YME Hackathon 2021 with a numbers disadvantage 🔥</small></b>  
+  <b><small>🔥 This project was ranked 4th place out of 24 teams at YME Hackathon 2021 🔥</small></b>  
 </p>
 
 ## Problem Statement
