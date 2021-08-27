@@ -40,6 +40,7 @@ Since no commission fee is incurred, this solution relies on advertising for lon
 - Watch the full presentation session [here](https://www.facebook.com/YMEglobal/videos/597477884755151).<br>
 - Check out the Figma project [here](https://www.figma.com/file/siTl4Z5Z75QgrJpIxB4tsF/Hackathon?node-id=0%3A1).<br>
 - Check out projects from the other teams [here](https://yme-hackathon-2021.devpost.com/project-gallery).<br>
+- Check out the hackathon on DevPost here [here](https://yme-hackathon-2021.devpost.com/).
 - Check out YMEGlobal's Facebook page [here](https://www.facebook.com/YMEglobal/).<br>
 
 <p align="center">
